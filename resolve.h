@@ -1,0 +1,31 @@
+/*
+ * * FILE NAME: resolve.h
+ * * HEADER FILE FOR resolve.c
+ * * CREATED BY:   RICK W. WALLEN
+ * * DATE CREATED: JULY.2.2013
+ * * DATE LAST MOD: AUGUST.21.2013
+ * *     ___________
+ * *    |           | 
+ * *  [[|___________|]] 
+ * *    \___________/ 
+ * *   __|[ ]||||[ ]|__
+ * *   \_| # |||| # |_/
+ * *  ___ ===Jeep=== ___ 
+ * * |\/\| ''    '' |\/\|
+ * * |/\/|          |/\/|
+ * * |_\_|          |_\_|
+ * */
+/**********************************************************************/
+/*
+ * * MODIFIED LOG:
+ * *       <date>-<description>
+ * *	July.3.2013-function prototypes for createPktDNS.c
+ * *	August.2.2013-added new prototype
+ * *	August.21.2013-fixed names	
+ * */
+/**********************************************************************/
+/* F(X) TO CREATE UDP PACKET */
+int createUdpQuery(DnsHeader *head, DnsQuery *query, char **qn, char *dnsAddr);
+
+/* F(X) TO PRINT ANSWER RECIEVED FROM SERVER */
+void printAns(DnsHeader *head, char *ans);
