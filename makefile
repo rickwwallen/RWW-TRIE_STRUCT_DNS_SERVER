@@ -12,6 +12,6 @@ rwwMultithreadedDNS : ricksMultithreadedDNS.c ricksMultithreadedDNS.h triez.c tr
 	
 rwwDNS : ricksDNS.c triez.c triez.h structs.h sharedFunctions.c sharedFunctions.h dns_1.h
 	$(CC) $(CFLAGS) ricksDNS.c -o rwwDNS
+
 clean : 
 	$(RM) rwwResolver rwwMultithreadedDNS rwwDNS
-
