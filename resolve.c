@@ -30,6 +30,7 @@
  * *	July.5.2013-use of memcpy to transfer structures into buff l#92-94
  * *	August.2.2013-added function to print message recieved from server
  * *	August.21.2013-redid include file
+ * *	December.13.2014-added code to take in non-default ip of dns server
  * */
 /**********************************************************************/
 #include "structs.h"
@@ -41,6 +42,9 @@
 int main( )
 {
 	int noQ = QRY_NO;
+	int addrsz = IPV4STRLEN;
+	int addrchk;
+	struct in_addr a_adr;
 	int i;
 	DnsHeader h;
 	DnsHdrFlags fl;
@@ -50,10 +54,37 @@ int main( )
 	
 	int recursion = 1;
 	char buff[DNM_SZ];
+	char uppr[DNM_SZ];
+	char *addr = (char *) malloc(addrsz * sizeof(char));
 	//char *addr = "127.0.0.1";
-	char *addr = "192.168.0.189";
+	//char *addr = "192.168.0.189";
+	//strcpy(addr,"127.0.0.1");
+	//strcpy(addr,"192.168.0.189");
+	strcpy(addr,"192.168.0.100");
 
-
+	strcpy(buff,"");
+	printf("Enter the server adderess {Enter d for default:(%s)}\n", addr);
+	scanf("%s", buff);
+	for(i = 0; i <= strlen(buff) + 1; i++)
+		uppr[i] = toupper(buff[i]);
+	i=0;
+	if(strcmp(uppr,"D") == 0||strcmp(uppr,"DEFAULT") == 0)
+		printf("Using default ip address:\t %s\n", addr);
+	else
+	{
+		printf("buff:\t %s\n", buff);
+		//strcpy(addr,"");
+		addrchk = inet_pton(AF_INET, buff, &a_adr);
+		if(addrchk != 0)
+		{
+			strcpy(addr,buff);
+			printf("Using user entered address:\t %s\n",addr);
+		}
+		else
+			printf("Using default ip address:\t %s\n", addr);
+	}
+	strcpy(buff,"q");
+	//strcpy(buff,"");
 	while(strcmp(buff, "q") != 0)
 	{
 		//Create DNS Header for query
