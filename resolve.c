@@ -83,8 +83,8 @@ int main( )
 		else
 			printf("Using default ip address:\t %s\n", addr);
 	}
-	strcpy(buff,"q");
-	//strcpy(buff,"");
+	//strcpy(buff,"q");
+	strcpy(buff,"");
 	while(strcmp(buff, "q") != 0)
 	{
 		//Create DNS Header for query
