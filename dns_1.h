@@ -60,8 +60,8 @@ int daemonProc;
 #define PKT_SZ 512 	//byte size of UDP Packet 512 - 12(header) 500
 #define UDP_SZ 4096	//bit size of UDP Packet 500 bytes * 8
 #define MAX_IP 65535	//Max byte size of IPv4 IPv6 is 65575 both include header
-//#define UDP_PT 53
-#define UDP_PT 32000
+#define UDP_PT 53
+//#define UDP_PT 32000
 #define IPV4STRLEN 16
 #define IPV6STRLEN 46
 #define MAXFD 64
