@@ -3,7 +3,7 @@
  * * STRUCTURES FOR THE DNS SERVER
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	JUNE.6.2013
- * * DATE LAST MOD:	AUGUST.21.2013
+ * * DATE LAST MOD:	DECEMBER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -29,8 +29,12 @@
  * *	July.13.2013-added/modified resouce records
  * *	August.21.2013-changed name to structs.h from parseMsgeDNS.h
  * *			-removed function prototype so that it can be moved to triez.h
+ * *	December.16.2014-added in conditional statements to ensure file/variables added only once
  * */
 /**********************************************************************/
+// INCLUDE ONCE
+#ifndef _STRUCTS_
+#define _STRUCTS_ 1
 #include <arpa/inet.h>
 #include "dns_1.h"
 
@@ -206,3 +210,5 @@ typedef enum
 	hs,
 	allClasses = 255
 }DnsClass;
+
+#endif //end if structs.h

@@ -3,7 +3,7 @@
  * * HEADER FILE FOR triez.c
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	JUNE.3.2013
- * * LAST MODIFIED:	AUGUST.21.2013
+ * * DATE LAST MOD:	DECEMBER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -22,8 +22,12 @@
  * *	July.5.2013-put in function prototypes
  * *	August.2.2013-added in prototypes from readZone.h
  * *	August.21.2013-added function prototypes from struct.h formally parseMsgeDNS.h
+ * *	December.16.2014-added in conditional statements to ensure file/variables added only once
  * */
 /**********************************************************************/
+// INCLUDE ONCE
+#ifndef _TRIEZ_
+#define _TRIEZ_ 1
 /* F(X) PROTOTYPES */
 /* F(X) TO DAEMONIZE THE SERVER */
 int daemonInit(const char *pname, int facility);
@@ -63,3 +67,5 @@ int revDN(char *DN);
 
 /* F(X) PROTOTYPES */
 uint16_t chSup(DnsType clType, DnsClass clClass);
+
+#endif //end if triez.h

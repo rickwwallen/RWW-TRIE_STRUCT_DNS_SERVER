@@ -3,7 +3,7 @@
  * * STANDARD HEADER FILE
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	JUNE.27.2013
- * * DATE LAST MOD:	DECEMBER.13.2014
+ * * DATE LAST MOD:	DECEMBER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -23,7 +23,7 @@
  * *	August.21.2013-added posix thread libraries and constants for
  * *			-multithreading
  * *	December.13.2014-changed udp port to 53 standard for dns queries
- * *
+ * *	December.16.2014-added in conditional statements to ensure file/variables added only once
  * */
 /**********************************************************************/
 //Network and Structures
@@ -50,6 +50,10 @@
 #include <signal.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+
+// INCLUDE ONCE
+#ifndef _PROJECT_GENERIC_
+#define _PROJECT_GENERIC_ 1
 int daemonProc;
 
 /* DECLARATIONS */
@@ -67,3 +71,5 @@ int daemonProc;
 #define IPV6STRLEN 46
 #define MAXFD 64
 #define THD_MX 8
+
+#endif //end if dns_1.h

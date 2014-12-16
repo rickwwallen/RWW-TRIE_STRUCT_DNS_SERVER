@@ -3,7 +3,7 @@
  * * HEADER FILE FOR resolve.c
  * * CREATED BY:   RICK W. WALLEN
  * * DATE CREATED: JULY.2.2013
- * * DATE LAST MOD: AUGUST.21.2013
+ * * DATE LAST MOD:DECEMBER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -22,10 +22,16 @@
  * *	July.3.2013-function prototypes for createPktDNS.c
  * *	August.2.2013-added new prototype
  * *	August.21.2013-fixed names	
+ * *	December.16.2014-added in conditional statements to ensure file/variables added only once
  * */
 /**********************************************************************/
+// INCLUDE ONCE
+#ifndef _RESOLVER_
+#define _RESOLVER_ 1
 /* F(X) TO CREATE UDP PACKET */
 int createUdpQuery(DnsHeader *head, DnsQuery *query, char **qn, char *dnsAddr);
 
 /* F(X) TO PRINT ANSWER RECIEVED FROM SERVER */
 void printAns(DnsHeader *head, char *ans);
+
+#endif //end if resolve.h

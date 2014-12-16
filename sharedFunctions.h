@@ -3,7 +3,7 @@
  * * HEADER FILE FOR sharedFunctions.c
  * * CREATED BY:   RICK W. WALLEN
  * * DATE CREATED: JULY.2.2013
- * * DATE LAST MOD: AUGUST.2.2013
+ * * DATE LAST MOD:DECEMBER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -22,8 +22,12 @@
  * *	July.3.2013-function prototypes for createPktDNS.c
  * *	August.2.2013-added function prototypes from test.h
  * *	August.21.2013-renamed sharedFunctions.h
+ * *	December.16.2014-added in conditional statements to ensure file/variables added only once
  * */
 /**********************************************************************/
+// INCLUDE ONCE
+#ifndef _SHARED_FUNCTIONS_
+#define _SHARED_FUNCTIONS_ 1
 /* FUNCTION PROTOTYPES */
 /* F(X) PUT QUERY IN STRING TO SEND UDP */
 int qryToStr(char *dest, DnsQuery *org1, char *org2, int *offset);
@@ -54,3 +58,5 @@ void printHdr(DnsHeader hdr);
 
 /*F(X) PRINT RESOURCE RECORD*/
 void printResRec(RR *rec);
+
+#endif //end shared_functions.h
