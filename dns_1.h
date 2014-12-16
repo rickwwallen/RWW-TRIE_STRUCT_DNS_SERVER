@@ -3,7 +3,7 @@
  * * STANDARD HEADER FILE
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	JUNE.27.2013
- * * DATE LAST MOD:	AUGUST.21.2013
+ * * DATE LAST MOD:	DECEMBER.13.2013
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -22,6 +22,7 @@
  * *	July.3.2013- added libraries and defined constants
  * *	August.21.2013-added posix thread libraries and constants for
  * *			-multithreading
+ * *	December.13.2014-changed udp port to 53 standard for dns queries
  * *
  * */
 /**********************************************************************/
