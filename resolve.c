@@ -3,7 +3,7 @@
  * * CLIENT AKA THE RESOLVER 
  * * CREATED BY:   RICK W. WALLEN
  * * DATE CREATED: MAY.8.2013
- * * DATE LAST MOD: AUGUST.21.2013
+ * * DATE LAST MOD: DECEMER.13.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
