@@ -4,7 +4,7 @@
  * *	MULTITHREADING
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	APRIL.22.2013
- * * DATE LAST MOD:	AUGUST.21.2013
+ * * DATE LAST MOD:	DECEMBER.15.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -36,6 +36,7 @@
  * *	August.2.2013-added code from readZone.c to this file
  * *		-added a function to put the resource record in message buffer to send 
  * *	August.21.2013-added function from what was parseMsgeDNS.c that checks support of query type and query class
+ * *	December.15.2014-init ttl to solve warnings since it is a low number if no overwrite occurs it assigns the ttlMin
  * */
 /**********************************************************************/
 #include "triez.h"
@@ -145,6 +146,9 @@ RR *createResRec(char *rec, uint32_t *ttlMin, uint16_t *rclass)
 	seg = 0;
 	class = 0;
 	type = 0;
+	
+	// Initialize ttl to get rid of warnings and assign it a small number to where if it doesn't get overwritten it assigns it ttlMin
+	ttl = 0; 
 
 	if(strcmp(rec, "") == 0)
 		return NULL;
