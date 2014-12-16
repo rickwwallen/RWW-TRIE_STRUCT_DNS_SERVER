@@ -23,6 +23,7 @@
  * *	August.2.2013-added new prototype
  * *	August.21.2013-fixed names	
  * *	December.16.2014-added in conditional statements to ensure file/variables added only once
+ * *	December.16.2014-added new functions one to read benchmark file one to prompt for user input
  * */
 /**********************************************************************/
 // INCLUDE ONCE
@@ -33,5 +34,11 @@ int createUdpQuery(DnsHeader *head, DnsQuery *query, char **qn, char *dnsAddr);
 
 /* F(X) TO PRINT ANSWER RECIEVED FROM SERVER */
 void printAns(DnsHeader *head, char *ans);
+
+/* F(X) FOR MANUAL CREATING PACKET */
+int promptUser();
+
+/* F(X) FOR MANUAL CREATING PACKET */
+int readBenchFile();
 
 #endif //end if resolve.h

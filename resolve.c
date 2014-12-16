@@ -3,7 +3,7 @@
  * * CLIENT AKA THE RESOLVER 
  * * CREATED BY:   RICK W. WALLEN
  * * DATE CREATED: MAY.8.2013
- * * DATE LAST MOD: DECEMER.13.2014
+ * * DATE LAST MOD: DECEMER.16.2014
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -31,6 +31,9 @@
  * *	August.2.2013-added function to print message recieved from server
  * *	August.21.2013-redid include file
  * *	December.13.2014-added code to take in non-default ip of dns server
+ * *	December.16.2014-added menu to choose between manual input and loading a benchmark file
+ * *		-benchmark file to be added at a later date
+ * *		-added new functions one to read benchmark file one to prompt for user input
  * */
 /**********************************************************************/
 #include "structs.h"
@@ -40,6 +43,59 @@
 
 /* MAIN F(X) */
 int main( )
+{
+	int i = 0;
+	int d = 0;
+	char buff[DNM_SZ];
+	char uppr[DNM_SZ];
+
+	while(strcmp(buff, "q") != 0)
+	{
+		strcpy(buff,"");
+		if(d == 0)
+		{
+			printf("Enter whether input will be manual or enter through file for benchmarking.\n"
+				"\tBring up menu/options:\t h/H help/HELP\n"
+				"\tManual User Input:\t i/I input/INPUT \n"
+				"\tRead benchmark File:\t b/B benchmark/BENCHMARK\n"
+				"\tQuit:\t x/X q/Q e/E exit/EXIT quit/QUIT\n");
+			d++;
+		}
+		scanf("%s", buff);
+		for(i = 0; i <= strlen(buff) + 1; i++)
+			uppr[i] = toupper(buff[i]);
+		if((strcmp(uppr,"I")==0) 
+		|| (strcmp(uppr,"INPUT")==0))
+			promptUser();
+		else if((strcmp(uppr,"B")==0) || (strcmp(uppr,"BENCHMARK")==0))
+			readBenchFile();
+		else if   ((strcmp(uppr,"Q")==0) 
+			|| (strcmp(uppr,"X")==0) 
+			|| (strcmp(uppr,"E")==0) 
+			|| (strcmp(uppr,"EXIT")==0)
+			|| (strcmp(uppr,"QUIT")==0))
+			break;
+		else if   ((strcmp(uppr,"H")==0)
+			|| (strcmp(uppr,"HELP")==0))
+	                printf("Commands list\n" 
+				"\tBring up menu/options:\t h/H help/HELP\n"
+				"\tManual User Input:\t i/I input/INPUT \n"
+                                "\tRead benchmark File:\t b/B benchmark/Benchmark\n"
+                                "\tQuit:\t x/X q/Q e/E exit/EXIT quit/QUIT\n\n");
+		else
+	                printf("Invalid Response\n"
+				"\tBring up menu/options:\t h/H help/HELP\n"
+				"\tManual User Input:\t i/I input/INPUT \n"
+                                "\tRead benchmark File:\t b/B benchmark/Benchmark\n"
+                                "\tQuit:\t x/X q/Q e/E exit/EXIT quit/QUIT\n\n");
+
+	}
+
+	return 0;
+}
+
+/* F(X) FOR MANUAL CREATING PACKET */
+int promptUser( )
 {
 	int noQ = QRY_NO;
 	int addrsz = IPV4STRLEN;
@@ -131,6 +187,13 @@ int main( )
 		createUdpQuery(&h, q, buff2, addr);
 	}
 
+	return 0;
+}
+
+/* F(X) FOR MANUAL CREATING PACKET */
+int readBenchFile( )
+{
+	printf("STUBBED FOR LATER ADDITION\n");
 	return 0;
 }
 
