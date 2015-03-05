@@ -3,7 +3,7 @@
  * * STRUCTURES FOR THE DNS SERVER
  * * CREATED BY:	RICK W. WALLEN
  * * DATE CREATED:	JUNE.6.2013
- * * DATE LAST MOD:	DECEMBER.16.2014
+ * * DATE LAST MOD:	MARCH.4.2015
  * *     ___________
  * *    |           | 
  * *  [[|___________|]] 
@@ -30,6 +30,7 @@
  * *	August.21.2013-changed name to structs.h from parseMsgeDNS.h
  * *			-removed function prototype so that it can be moved to triez.h
  * *	December.16.2014-added in conditional statements to ensure file/variables added only once
+ * *	March.4.2015-Altered ordering in resource records structures
  * */
 /**********************************************************************/
 // INCLUDE ONCE
@@ -106,35 +107,36 @@ typedef struct rr
 
 typedef struct arec
 {
-	struct in_addr	address;
-
+	uint16_t	rdlen;
 	uint16_t	rclass;
 	int32_t		ttl;
-	uint16_t	rdlen;
+	struct in_addr	address;
+
 	struct arec	*anxt;
 } A;
 
 typedef struct nsrec
 {
-	char		*nsdname;
-
+	uint16_t	rdlen;	
 	uint16_t	rclass;
 	int32_t		ttl;
-	uint16_t	rdlen;	
+	char		*nsdname;
+
 	struct nsrec	*nsnxt;
 } NS;
 
 typedef struct cnamerec
 {
-	char		*cname;
-
+	uint16_t	rdlen;
 	uint16_t	rclass;
 	int32_t		ttl;
-	uint16_t	rdlen;
+	char		*cname;
 } CNAME;
 
 typedef struct soarec
 {
+	uint16_t	rdlen;
+	uint16_t	rclass;
 	char 		*mname;
 	char		*rname;
 	uint32_t	serial;
@@ -142,38 +144,34 @@ typedef struct soarec
 	int32_t		retry;
 	int32_t		expire;
 	uint32_t	minimum;
-
-	uint16_t	rclass;
-	uint16_t	rdlen;
 } SOA;
 
 typedef struct ptrrec
 {
-	char		*ptrdname;
-
+	uint16_t	rdlen;
 	uint16_t	rclass;
 	int32_t		ttl;
-	uint16_t	rdlen;
+	char		*ptrdname;
 } PTR;
 	
 typedef struct mxrec
 {
+	uint16_t	rdlen;
+	uint16_t	rclass;
+	int32_t		ttl;
 	uint16_t	preference;
 	char		*exchange;
 
-	uint16_t	rclass;
-	int32_t		ttl;
-	uint16_t	rdlen;
 	struct mxrec	*mxnxt;
 } MX;
 
 typedef struct aaaarec
 {
-	struct in6_addr	address;
-
+	uint16_t	rdlen;
 	uint16_t	rclass;
 	int32_t		ttl;
-	uint16_t	rdlen;
+	struct in6_addr	address;
+
 	struct aaaarec	*aaaanxt;
 } AAAA;
 
